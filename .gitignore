@@ -1,7 +1,9 @@
 node_modules
+dist
 nbuild
 npm-debug.log
 .DS_Store
 .cache
 .idea
 .env
+.env.*
