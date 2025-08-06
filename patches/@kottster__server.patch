@@ -1,0 +1,26 @@
+diff --git a/dist/adapters/knex/knexPg.js b/dist/adapters/knex/knexPg.js
+index 56ceee0b8ef0f6a6ee41cd1388a22e6e94a1bedf..36e52dce718edeeb8e957992c07499883cf0a377 100644
+--- a/dist/adapters/knex/knexPg.js
++++ b/dist/adapters/knex/knexPg.js
+@@ -275,7 +275,7 @@ class KnexPg extends dataSourceAdapter_model_1.DataSourceAdapter {
+           AND tc.table_schema = COALESCE(?, current_schema())
+       ),
+       fk_info AS (
+-        SELECT
++        SELECT distinct 
+           kcu.table_name,
+           kcu.column_name,
+           ccu.table_name AS foreign_table_name,
+diff --git a/lib/adapters/knex/knexPg.ts b/lib/adapters/knex/knexPg.ts
+index 8065aec6275f63efca21465e186867728b9b5c1f..65f2befe7bbdd2173490db939bea4c3bde805411 100644
+--- a/lib/adapters/knex/knexPg.ts
++++ b/lib/adapters/knex/knexPg.ts
+@@ -291,7 +291,7 @@ export class KnexPg extends DataSourceAdapter {
+           AND tc.table_schema = COALESCE(?, current_schema())
+       ),
+       fk_info AS (
+-        SELECT
++        SELECT distinct 
+           kcu.table_name,
+           kcu.column_name,
+           ccu.table_name AS foreign_table_name,
