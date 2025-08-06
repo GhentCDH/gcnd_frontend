@@ -1,0 +1,9 @@
+**/.env
+**/.env.*
+**/.git
+**/.cache
+**/.pnpm-store
+**/.idea
+**/var
+**/node_modules
+**/vendor
