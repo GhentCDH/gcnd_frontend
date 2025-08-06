@@ -6,6 +6,8 @@
     "dataSource": "postgres-db-gcnd",
     "fetchStrategy": "databaseTable",
     "table": "persoon",
+    "defaultSortColumn": "persoon_id",
+    "defaultSortDirection": "asc",
     "columns": [
       {
         "formFieldSpan": "6",

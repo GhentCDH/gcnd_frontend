@@ -7,6 +7,8 @@
     "fetchStrategy": "databaseTable",
     "table": "opname",
     "primaryKeyColumn": "opname_id",
+    "defaultSortColumn": "opname_id",
+    "defaultSortDirection": "asc",
     "columns": [
       {
         "position": 0,
@@ -39,6 +41,10 @@
           "type": "select"
         },
         "fieldRequirement": "notEmpty",
+        "relationshipPreviewColumns": [
+          "kloeke_code",
+          "naam"
+        ],
         "column": "plaats_id"
       },
       {
@@ -46,6 +52,7 @@
         "relationshipPreviewColumns": [],
         "id": "dag",
         "formFieldSpan": "4",
+        "hiddenInTable": true,
         "column": "dag"
       },
       {
@@ -53,6 +60,7 @@
         "relationshipPreviewColumns": [],
         "id": "maand",
         "formFieldSpan": "4",
+        "hiddenInTable": true,
         "column": "maand"
       },
       {
@@ -100,22 +108,52 @@
         "primaryKeyColumn": "opname__persoon_id",
         "columns": [
           {
-            "fieldInput": {
-              "type": "input"
-            },
+            "hiddenInTable": true,
+            "position": 0,
+            "relationshipPreviewColumns": [],
+            "id": "opname__persoon_id",
+            "column": "opname__persoon_id"
+          },
+          {
+            "position": 1,
+            "relationshipPreviewColumns": [
+              "opname_code"
+            ],
+            "id": "opname_id",
+            "column": "opname_id"
+          },
+          {
+            "position": 2,
+            "relationshipPreviewColumns": [],
+            "id": "nummer",
+            "column": "nummer"
+          },
+          {
+            "position": 3,
+            "relationshipPreviewColumns": [],
+            "id": "opname_persoon_code",
+            "column": "opname_persoon_code"
+          },
+          {
+            "position": 4,
             "relationshipPreviewColumns": [
               "voornaam",
               "familienaam",
               "geboorte_jaar"
             ],
+            "fieldInput": {
+              "type": "input"
+            },
+            "id": "persoon_id",
             "column": "persoon_id"
           },
           {
-            "hiddenInTable": true,
+            "position": 5,
             "relationshipPreviewColumns": [
-              "opname_code"
+              "label"
             ],
-            "column": "opname_id"
+            "id": "opname_functie_id",
+            "column": "opname_functie_id"
           }
         ],
         "relationships": [
@@ -243,7 +281,46 @@
         "allowInsert": false,
         "allowUpdate": false,
         "allowDelete": false
+      },
+      "opnameBestandByOpnameIdTable": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "opname__bestand",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "opname__bestand_id",
+        "columns": [
+          {
+            "relationshipPreviewColumns": [
+              "pad"
+            ],
+            "column": "bestand_id"
+          },
+          {
+            "hiddenInTable": true,
+            "column": "opname_id"
+          },
+          {
+            "hiddenInTable": true,
+            "column": "opname__bestand_id"
+          }
+        ]
       }
-    }
+    },
+    "relationships": [
+      {
+        "label": "Bestanden",
+        "key": "opname__bestand_by_opname_id",
+        "hiddenInTable": false
+      },
+      {
+        "label": "Personen",
+        "key": "opname__persoon_by_opname_id",
+        "hiddenInTable": false,
+        "columns": [
+          "familienaam",
+          "voornaam",
+          "persoon_id"
+        ]
+      }
+    ]
   }
 }

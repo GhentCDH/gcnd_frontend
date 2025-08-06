@@ -6,6 +6,118 @@
   "config": {
     "dataSource": "postgres-db-gcnd",
     "fetchStrategy": "databaseTable",
-    "table": "transcriptie"
+    "table": "transcriptie",
+    "relationships": [
+      {
+        "key": "alpino_annotatie_by_transcriptie_id",
+        "hiddenInTable": true
+      },
+      {
+        "key": "elan_annotatie_by_transcriptie_id",
+        "hiddenInTable": true
+      }
+    ],
+    "columns": [
+      {
+        "position": 0,
+        "relationshipPreviewColumns": [],
+        "id": "transcriptie_id",
+        "column": "transcriptie_id"
+      },
+      {
+        "position": 1,
+        "relationshipPreviewColumns": [
+          "opname_code"
+        ],
+        "id": "opname_id",
+        "column": "opname_id"
+      },
+      {
+        "position": 2,
+        "relationshipPreviewColumns": [
+          "label"
+        ],
+        "id": "transcriptie_type_id",
+        "column": "transcriptie_type_id"
+      },
+      {
+        "position": 3,
+        "relationshipPreviewColumns": [],
+        "id": "jaar",
+        "column": "jaar"
+      },
+      {
+        "position": 4,
+        "relationshipPreviewColumns": [
+          "label"
+        ],
+        "id": "transcriptie_status_id",
+        "column": "transcriptie_status_id"
+      }
+    ],
+    "nested": {
+      "_transcriptieStatusIdSelectionTable": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "transcriptie_status",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "transcriptie_status_id",
+        "columns": [
+          {
+            "hiddenInTable": true,
+            "column": "transcriptie_status_id"
+          }
+        ],
+        "relationships": [
+          {
+            "key": "transcriptie_by_transcriptie_status_id",
+            "hiddenInTable": true
+          }
+        ],
+        "allowInsert": false,
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "transcriptieBestandByTranscriptieIdTable": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "transcriptie__bestand",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "transcriptie__bestand_id",
+        "columns": [
+          {
+            "hiddenInTable": true,
+            "column": "transcriptie__bestand_id"
+          },
+          {
+            "hiddenInTable": true,
+            "column": "transcriptie_id"
+          },
+          {
+            "relationshipPreviewColumns": [
+              "pad"
+            ],
+            "column": "bestand_id"
+          }
+        ],
+        "allowUpdate": false,
+        "allowInsert": false,
+        "allowDelete": false
+      },
+      "transcriptieBestandByTranscriptieIdTable_bestandByBestandIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "bestand",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "bestand_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "transcriptieTypeByTranscriptieTypeIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "transcriptie_type",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "transcriptie_type_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      }
+    }
   }
 }
