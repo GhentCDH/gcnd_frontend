@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "type": "table",
+  "title": "Transcripties",
+  "hideInSidebar": false,
+  "config": {
+    "dataSource": "postgres-db-gcnd",
+    "fetchStrategy": "databaseTable",
+    "table": "transcriptie"
+  }
+}

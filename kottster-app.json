@@ -1,0 +1,12 @@
+{
+  "id": "ab49d525-2ab3-4553-ac22-2cf3722ec285",
+  "meta": {
+    "name": "GCND",
+    "icon": "https://web.kottster.app/icon.png"
+  },
+  "menuPageOrder": [
+    "opnames",
+    "personen",
+    "transcripties"
+  ]
+}

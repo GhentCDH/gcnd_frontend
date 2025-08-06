@@ -1,0 +1,40 @@
+{
+  "name": "kottster",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "dev": "kottster dev",
+    "dev:add-data-source": "kottster add-data-source",
+    "build": "vite build && kottster build:server",
+    "start": "node dist/server/server.cjs"
+  },
+  "dependencies": {
+    "@kottster/common": "^3.x",
+    "@kottster/cli": "^3.x",
+    "@kottster/server": "^3.x",
+    "@kottster/react": "^3.x",
+    "knex": "^3.x",
+    "pg": "^8.7.1",
+    "react": "^19.x",
+    "react-dom": "^19.x",
+    "react-router-dom": "^7.x"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/react": "^19.x",
+    "@types/react-dom": "^19.x",
+    "@vitejs/plugin-react": "^4.x",
+    "sass": "^1.89.2",
+    "sass-embedded": "^1.89.2",
+    "tsx": "^4.x",
+    "typescript": "^5.x",
+    "vite": "^6.x",
+    "vite-tsconfig-paths": "^4.x"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
+}
