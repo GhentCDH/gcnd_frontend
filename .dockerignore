@@ -3,6 +3,7 @@
 **/.git
 **/.cache
 **/.pnpm-store
+**/.pnpm_patches
 **/.idea
 **/var
 **/node_modules
