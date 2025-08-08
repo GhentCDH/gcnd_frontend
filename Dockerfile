@@ -1,4 +1,4 @@
-FROM node:22-alpine as node-base
+FROM node:22-alpine AS node-base
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN corepack enable
 # install git and tini
 RUN apk add --no-cache git tini
 
-FROM node-base as dev
+FROM node-base AS dev
 
 EXPOSE 5480 5481
 
@@ -26,7 +26,7 @@ ENTRYPOINT ["/sbin/tini", "--"]
 # This is a dummy command to keep the container running
 CMD ["tail", "-f", "/dev/null"]
 
-FROM node-base as prod
+FROM node-base AS prd
 
 ENV PORT=5480
 ARG USERGROUP=node
@@ -38,7 +38,7 @@ WORKDIR /app
 
 # install production dependencies
 COPY package*.json .
-COPY patches ./patches
+COPY patches* .
 RUN pnpm install
 
 # Copy the rest of the application code
