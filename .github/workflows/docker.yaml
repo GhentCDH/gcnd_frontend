@@ -40,4 +40,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=registry,ref=ghentcdh/gcnd-frontend:buildcache
           cache-to: type=registry,ref=ghentcdh/gcnd-frontend:buildcache,mode=max
-          target: prod
+          target: prd
