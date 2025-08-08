@@ -1,4 +1,4 @@
-import {KnexPgAdapter, createDataSource} from '@kottster/server';
+import {KnexPgAdapter} from '@kottster/server';
 import knex from 'knex';
 
 const client = knex({
