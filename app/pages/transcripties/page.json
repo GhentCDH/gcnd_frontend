@@ -22,6 +22,7 @@
         "position": 0,
         "relationshipPreviewColumns": [],
         "id": "transcriptie_id",
+        "label": "Transcriptie ID",
         "column": "transcriptie_id"
       },
       {

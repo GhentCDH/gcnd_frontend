@@ -28,6 +28,10 @@
       {
         "formFieldSpan": "4",
         "column": "geboorte_maand"
+      },
+      {
+        "label": "Persoon ID",
+        "column": "persoon_id"
       }
     ],
     "nested": {

@@ -14,7 +14,8 @@
         "position": 0,
         "relationshipPreviewColumns": [],
         "id": "opname_id",
-        "column": "opname_id"
+        "column": "opname_id",
+        "label": "Opname ID"
       },
       {
         "sortable": true,
@@ -33,18 +34,13 @@
       },
       {
         "position": 3,
-        "_relationshipPreviewColumns": [
-          "naam"
-        ],
         "id": "plaats_id",
-        "_fieldInput": {
-          "type": "select"
-        },
         "fieldRequirement": "notEmpty",
         "relationshipPreviewColumns": [
           "kloeke_code",
           "naam"
         ],
+        "label": "Plekke",
         "column": "plaats_id"
       },
       {
@@ -309,7 +305,7 @@
       {
         "label": "Bestanden",
         "key": "opname__bestand_by_opname_id",
-        "hiddenInTable": false
+        "_hiddenInTable": false
       },
       {
         "label": "Personen",
@@ -320,6 +316,10 @@
           "voornaam",
           "persoon_id"
         ]
+      },
+      {
+        "key": "transcriptie_by_opname_id",
+        "hiddenInTable": false
       }
     ]
   }
