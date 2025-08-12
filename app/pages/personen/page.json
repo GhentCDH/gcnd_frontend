@@ -10,28 +10,97 @@
     "defaultSortDirection": "asc",
     "columns": [
       {
+        "label": "Persoon ID",
+        "position": 0,
+        "relationshipPreviewColumns": [],
+        "id": "persoon_id",
+        "column": "persoon_id"
+      },
+      {
+        "position": 1,
+        "relationshipPreviewColumns": [],
         "formFieldSpan": "6",
+        "id": "familienaam",
         "column": "familienaam"
       },
       {
+        "position": 2,
+        "relationshipPreviewColumns": [],
         "formFieldSpan": "6",
+        "id": "voornaam",
         "column": "voornaam"
       },
       {
-        "formFieldSpan": "4",
-        "column": "geboorte_dag"
+        "position": 3,
+        "relationshipPreviewColumns": [],
+        "id": "alias",
+        "column": "alias"
       },
       {
+        "position": 4,
+        "relationshipPreviewColumns": [
+          "label"
+        ],
+        "id": "gender_id",
+        "column": "gender_id"
+      },
+      {
+        "position": 5,
+        "relationshipPreviewColumns": [],
         "formFieldSpan": "4",
+        "id": "geboorte_jaar",
         "column": "geboorte_jaar"
       },
       {
+        "position": 6,
+        "relationshipPreviewColumns": [],
         "formFieldSpan": "4",
+        "id": "geboorte_maand",
         "column": "geboorte_maand"
       },
       {
-        "label": "Persoon ID",
-        "column": "persoon_id"
+        "position": 7,
+        "relationshipPreviewColumns": [],
+        "formFieldSpan": "4",
+        "id": "geboorte_dag",
+        "column": "geboorte_dag"
+      },
+      {
+        "position": 8,
+        "relationshipPreviewColumns": [
+          "kloeke_code",
+          "naam"
+        ],
+        "id": "geboorte_plaats_id",
+        "column": "geboorte_plaats_id"
+      },
+      {
+        "position": 9,
+        "relationshipPreviewColumns": [],
+        "id": "schoolleeftijd",
+        "column": "schoolleeftijd"
+      },
+      {
+        "position": 10,
+        "relationshipPreviewColumns": [],
+        "id": "opleiding",
+        "column": "opleiding"
+      },
+      {
+        "position": 11,
+        "relationshipPreviewColumns": [
+          "label"
+        ],
+        "id": "beroep_mobiliteit_id",
+        "column": "beroep_mobiliteit_id"
+      },
+      {
+        "position": 12,
+        "relationshipPreviewColumns": [
+          "label"
+        ],
+        "id": "woonplaats_mobiliteit_id",
+        "column": "woonplaats_mobiliteit_id"
       }
     ],
     "nested": {
@@ -269,11 +338,50 @@
         "columns": [
           {
             "hiddenInTable": true,
+            "position": 0,
+            "relationshipPreviewColumns": [],
+            "id": "opname__persoon_id",
             "column": "opname__persoon_id"
+          },
+          {
+            "position": 1,
+            "relationshipPreviewColumns": [
+              "opname_code",
+              "bron"
+            ],
+            "id": "opname_id",
+            "searchable": true,
+            "column": "opname_id"
+          },
+          {
+            "position": 2,
+            "relationshipPreviewColumns": [],
+            "id": "nummer",
+            "column": "nummer"
+          },
+          {
+            "position": 3,
+            "relationshipPreviewColumns": [],
+            "id": "opname_persoon_code",
+            "column": "opname_persoon_code"
+          },
+          {
+            "position": 4,
+            "relationshipPreviewColumns": [
+              "label"
+            ],
+            "id": "opname_functie_id",
+            "column": "opname_functie_id"
           },
           {
             "hiddenInTable": true,
             "hiddenInForm": true,
+            "position": 5,
+            "relationshipPreviewColumns": [
+              "voornaam",
+              "familienaam"
+            ],
+            "id": "persoon_id",
             "column": "persoon_id"
           }
         ],
@@ -366,7 +474,9 @@
             "id": "bron",
             "column": "bron"
           }
-        ]
+        ],
+        "allowUpdate": false,
+        "allowDelete": false
       },
       "opnamePersoonByPersoonIdTable__opnameFunctieIdSelectionTable": {
         "dataSource": "postgres-db-gcnd",
@@ -381,7 +491,13 @@
         ],
         "allowInsert": false,
         "allowUpdate": false,
-        "allowDelete": false
+        "allowDelete": false,
+        "columns": [
+          {
+            "hiddenInTable": true,
+            "column": "opname_functie_id"
+          }
+        ]
       },
       "opnamePersoonByPersoonIdTable__opnameIdSelectionTable": {
         "dataSource": "postgres-db-gcnd",
@@ -548,27 +664,75 @@
             "hiddenInTable": true
           }
         ]
+      },
+      "mobiliteitByBeroepMobiliteitIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "mobiliteit",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "mobiliteit_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "mobiliteitByWoonplaatsMobiliteitIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "mobiliteit",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "mobiliteit_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "plaatsByGeboortePlaatsIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "plaats",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "plaats_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "genderByGenderIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "gender",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "gender_id",
+        "allowDelete": false,
+        "allowUpdate": false
+      },
+      "opnamePersoonByPersoonIdTable_opnameFunctieByOpnameFunctieIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "opname_functie",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "opname_functie_id",
+        "allowUpdate": false,
+        "allowDelete": false
+      },
+      "persoonPersoonByPersoonId1Table_relatieTypeByRelatieIdForm": {
+        "dataSource": "postgres-db-gcnd",
+        "table": "relatie_type",
+        "fetchStrategy": "databaseTable",
+        "primaryKeyColumn": "relatie_type_id",
+        "allowUpdate": false,
+        "allowDelete": false
       }
     },
     "relationships": [
       {
-        "key": "persoon__beroep_by_persoon_id",
+        "key": "persoon__schoolplaats_by_persoon_id",
         "position": 0
       },
       {
-        "key": "persoon__beroep_origineel_by_persoon_id",
+        "key": "persoon__woonplaats_by_persoon_id",
         "position": 1
       },
       {
-        "key": "persoon__beroepplaats_by_persoon_id",
+        "key": "persoon__beroep_by_persoon_id",
         "position": 2
       },
       {
-        "key": "persoon__schoolplaats_by_persoon_id",
+        "key": "persoon__beroep_origineel_by_persoon_id",
         "position": 3
       },
       {
-        "key": "persoon__woonplaats_by_persoon_id",
+        "key": "persoon__beroepplaats_by_persoon_id",
         "position": 4
       },
       {
@@ -581,6 +745,7 @@
       },
       {
         "key": "transcriptie__persoon_by_persoon_id",
+        "hiddenInTable": true,
         "position": 7
       }
     ]
